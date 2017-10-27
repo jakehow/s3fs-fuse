@@ -1429,7 +1429,7 @@ bool S3fsCurl::SetIAMCredentials(const char* response)
     return false;
   }
   if(IAMCRED_KEYCOUNT != keyval.size()){
-    S3FS_PRN_INFO3("IAM credential response parsed incorrect number of keys = \"%s\"", keyval.size());
+    S3FS_PRN_INFO3("IAM credential response parsed incorrect number of keys");
     return false;
   }
 
