@@ -1425,9 +1425,11 @@ bool S3fsCurl::SetIAMCredentials(const char* response)
   iamcredmap_t keyval;
 
   if(!ParseIAMCredentialResponse(response, keyval)){
+    S3FS_PRN_INFO3("IAM credential response was not parseable");
     return false;
   }
   if(IAMCRED_KEYCOUNT != keyval.size()){
+    S3FS_PRN_INFO3("IAM credential response parsed incorrect number of keys = \"%s\"", keyval.size());
     return false;
   }
 
@@ -1481,6 +1483,7 @@ bool S3fsCurl::SetIAMRoleFromMetaData(const char* response)
   string rolename;
 
   if(!S3fsCurl::ParseIAMRoleFromMetaDataResponse(response, rolename)){
+    S3FS_PRN_INFO3("IAM role name response metadata was not parseable");
     return false;
   }
 
